@@ -20,7 +20,20 @@
     </div>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>
+      <div class="total">
+        <span class="main-color">총</span> ₩52,000
+      </div>
     </div>
+    <div>
+      <ul class="list">
+        <li>식품</li>
+        <li>주거</li>
+        <li>쇼핑</li>
+        <li>교통</li>
+        <li>기타</li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
@@ -102,6 +115,20 @@ export default {
   }
 
   .spend {
-    font-size: 1em;
+    padding: 1em;
+  }
+  .total {
+    float: right;
+    font-size: 0.875em;
+  }
+  .list {
+    list-style: none;
+    vertical-align: center;
+  }
+  .list li {
+    width: 375px;
+    height: 34px;
+    box-shadow: inset 0 -1px 0 0 #efefef;
+    padding: 0.3em 0.5em 0.1em 0.5em;
   }
 </style>
