@@ -11,8 +11,9 @@ export default {
 </script>
 
 <style>
-body {
+body, ul, li {
   margin:0;
+  padding: 0;
 }
 .main-color {
   color:#a0a0a0;
