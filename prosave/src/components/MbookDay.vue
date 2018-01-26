@@ -27,7 +27,7 @@
     <table class="list main-color">
       <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
       <tr v-for="list in spendList">
-        <td class="col1"><span v-bind:class="circle"></span>{{ list.type }}</td>
+        <td class="col1"><span v-bind:class="list.circle"></span>{{ list.type }}</td>
         <td class="col2">{{ list.count }}</td>
         <td class="col3">{{ list.total }}</td>
       </tr>
