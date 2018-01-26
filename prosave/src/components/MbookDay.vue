@@ -47,7 +47,6 @@ export default {
   name: 'MbookDay',
   data() {
     return {
-      circle: ['circle1', 'circle2', 'circle3', 'circle4', 'circle5'],
       spendList: [
         {
           type: '식품',
