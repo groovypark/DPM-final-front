@@ -25,9 +25,13 @@
       <span class="circle"></span><br/><span></span>
     </div> -->
     <div class="category-container">
-      <div class="category-box" v-for="category in categorys" :key="category.id">
+      <div class="category-box" v-for="category in categorys" :key="category.id" v-on:click="checkCategory">
         <div class="circle"></div>
         <span class="category">{{ category }}</span>
+      </div>
+
+      <div id="id" v-on:click="test">
+        선택하기
       </div>
     </div>
 
@@ -44,7 +48,17 @@ export default {
   data() {
     return {
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
+      selected: false,
     };
+  },
+  methods: {
+    checkCategory: function ckeckCategory() {
+      const selectCategory = document.getElementsByClassName('category-box');
+      for (let index = 0; index < selectCategory.length; index += 1) {
+        const element = selectCategory[index];
+        element.setAttribute('style', 'border: solid 1px black;');
+      }
+    },
   },
 };
 </script>
@@ -168,6 +182,7 @@ export default {
   margin-left: 1em;
   margin-bottom: 0.563em;
   text-align: center;
+  cursor: pointer;
 }
 
 .circle {
