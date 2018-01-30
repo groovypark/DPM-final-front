@@ -33,10 +33,10 @@
       </tr>
     </table>
 
-    <router-link to="add"><img class="btn-add" src="static/img/btnAdd.png"></router-link>
+    <router-link to="/moneybook/add"><img class="btn-add" src="static/img/btnAdd.png"></router-link>
     <div class="footer-total main-color">
       <span class="circle4" style="font-size:2.5em"></span>
-      <span class="footer-text"> 통계</span>
+      <router-link to="/moneybook/statistics"><span class="footer-text"> 통계</span></router-link>
     </div>
 
   </div>
