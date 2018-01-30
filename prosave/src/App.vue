@@ -15,6 +15,10 @@ export default {
     margin:0;
     padding: 0;
   }
+  a {
+    text-decoration: none;
+    color: black;
+  }
   :root {
     --gray: #a3a3a4;
   }
