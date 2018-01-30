@@ -47,6 +47,7 @@ export default {
     };
   },
   methods: {
+    // 중복선택됨 수정필요
     checkCategory: function ckeckCategory() {
       const selectCategory = document.getElementsByClassName('category-box');
       for (let index = 0; index < selectCategory.length; index += 1) {
