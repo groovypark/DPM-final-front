@@ -4,33 +4,35 @@
     <div class="header">
       <div class="title">
         지출
-        <router-link to="/"><span class="close">x</span></router-link>
+        <router-link to="/moneybook"><span class="close">x</span></router-link>
       </div>
-      <div class="dropdown">
-        <button class="dropbtn">화 12월 25일 2017년 <span class="main-color">▾ </span></button>
-        <div class="dropdown-content">
-          <a href="#">수 12월 26일 2017년</a>
-          <a href="#">목 12월 27일 2017년</a>
+      <div class="header-center">
+        <div class="dropdown">
+          <!-- http://jqueryui.com/datepicker/ -->
+          <button class="dropbtn">화 12월 25일 2017년 <span class="main-color">▾ </span></button>
+          <div class="dropdown-content">
+            <a href="#">수 12월 26일 2017년</a>
+            <a href="#">목 12월 27일 2017년</a>
+          </div>
+        </div> 
+        <div class="cash">현금</div>
+        <div class="add-money">
+          <span class="add-money-font">금액</span>
+          <span class="add-money-total">₩ 12,000</span>
         </div>
-      </div> 
-      <div class="cash">현금</div>
-      <div class="add-money">
-        <span class="add-money-font">금액</span>
-        <span class="add-money-total">₩ 12,000</span>
       </div>
     </div>
     <!-- header end -->
-    <div class="title-choose-category">카테고리를 선택해주세요.</div>
-    <!-- <div class="category-box">
-      <span class="circle"></span><br/><span></span>
-    </div> -->
-    <div class="category-container" v-on:click="checkCategory">
-      <div class="category-box" v-for="category in categorys" :key="category.id">
-        <div class="circle"></div>
-        <span class="category">{{ category }}</span>
+    <div class="category-div">
+      <div class="title-choose-category">카테고리를 선택해주세요.</div>
+      <div class="category-container" v-on:click="checkCategory">
+        <div class="category-box" v-for="category in categorys" :key="category.id">
+          <div class="circle"></div>
+          <span class="category">{{ category }}</span>
+        </div>
       </div>
     </div>
-
+    
     <div class="footer">
       <div class="btn-cancel"><a href="">취소</a></div>
       <div class="btn-submit"><a href="">추가하기</a></div>
@@ -63,6 +65,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.header-center {
+  text-align: center;
+  margin: auto;
+  width: 375px;
+}
 .header {
   width: 100%;
   height: 11.313em;
@@ -80,85 +87,91 @@ export default {
 }
 
 /*------------- Style The Dropdown Button Start -------------*/
-  .dropbtn {
-      background-color: #efefef;
-      padding: 0.438em 1em;
-      font-size: 0.875em;
-      border-radius: 3px;
-      border: solid 1px #d1d1d2;
-      cursor: pointer;
-  }
-
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    padding-left: 1em;
-  }
-
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #efefef;
-      min-width: 10.072em;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-  }
-
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #000000;
-    font-size: 0.875em;
+.dropbtn {
+    background-color: #efefef;
     padding: 0.438em 1em;
-    text-decoration: none;
-    display: block;
-  }
-
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #efefef}
-
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-  /*--------------- Style The Dropdown Button End -----------------*/
-
-  .cash {
-    width: 5em;
-    height: 1.3em;
-    border-radius: 3px;
-    background-color: #d1d1d2;
-    padding: 0.375em 0;
     font-size: 0.875em;
-    color: #747477;
-    text-align: center;
-    float: right;
-    margin-right: 1em;
-  }
+    border-radius: 3px;
+    border: solid 1px #d1d1d2;
+    cursor: pointer;
+}
 
-  .add-money {
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  padding-left: 1em;
+  float: left;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #efefef;
+    min-width: 10.072em;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #000000;
+  font-size: 0.875em;
+  padding: 0.438em 1em;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #efefef}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/*--------------- Style The Dropdown Button End -----------------*/
+
+.cash {
+  width: 5em;
+  height: 1.3em;
+  border-radius: 3px;
+  background-color: #d1d1d2;
+  padding: 0.375em 0;
+  font-size: 0.875em;
+  color: #747477;
+  text-align: center;
+  float: right;
+  margin-right: 1em;
+}
+
+.add-money {
   width: 21em;
-  /* height: 50px; */
   border-radius: 3px;
   background-color: #ffffff;
   margin: 1em;
   padding: 0.8em 0.2em;
+  float: inline-end;
 }
 
 .add-money-font {
   font-size: 0.875em;
-  line-height: 1;
+  line-height: 0;
   letter-spacing: -0.2px;
   text-align: left;
   color: #747477;
   padding: 0.938em 1.125em;
+  float: left;
 }
 
 .add-money-total {
   float: right;
   padding-right: 1em;
   font-size: 1.125em;
+}
+
+.category-div {
+  width: 375px;
+  margin: auto;
 }
 
 .title-choose-category {
