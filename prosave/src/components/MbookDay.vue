@@ -158,7 +158,7 @@ export default {
     font-size: 0.875em;
   }
 
-   /* table css start  */
+   /*-------------------- table css start  -----------------------*/
   .list {
     width: 100%;
     list-style: none;
@@ -209,7 +209,7 @@ export default {
     color: #747477;
     padding-right: 0.2em;
   }
-  /* table css end  */
+  /*------------------ table css end  -----------------*/
 
   .footer-total {
     position: absolute;
