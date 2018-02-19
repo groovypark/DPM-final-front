@@ -1,12 +1,18 @@
 <template>
   <div class="mbookStatistics">
     <div class="header">
-      <span class="go-mbook"> < Money Book </span>
-      <span class="add"> + 추가하기 </span>
+      <router-link to="/moneybook/"><span class="go-mbook"> < Money Book </span></router-link>
+      <div class="add">+ 추가하기</div>
     </div>
-    <div>통계</div>
-
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="title">통계</div>
+    <div class="dropdown">
+      <!-- http://jqueryui.com/datepicker/ -->
+      <button class="dropbtn">03.01.2018 &nbsp;<span class="main-color">▾ </span></button>
+      <div class="dropdown-content">
+        <a href="#">03.02.2018</a>
+        <a href="#">03.03.2018</a>
+      </div>
+    </div>
 
     <div class="item">
       <table class="list main-color">
@@ -18,7 +24,7 @@
         </tr>
       </table>
       <div class="item-total">
-        <span class="text-gray">총 &nbsp</span>₩ 111,139,000
+        <span class="text-gray">총 &nbsp;</span>₩ 111,139,000
       </div>
     </div>
 
@@ -73,17 +79,64 @@ export default {
   .header {
     height: 3.375em;
   }
+  .title {
+    padding: 0 0 1em 1em;
+  }
   .go-mbook {
     float: left;
+    font-size: 0.688em;
+    color: #a3a3a4;
+    padding: 1.5em 0 1em 1.8em;
+
   }
   .add {
     float: right;
+    padding: 1em;
   }
   .item {
     position: absolute;
     bottom: 0;
     width: 100%
   }
+  /*------------- Style The Dropdown Button Start -------------*/
+  .dropbtn {
+      background-color: white;
+      padding: 0.438em 1em;
+      font-size: 0.875em;
+      border-radius: 3px;
+      border: solid 1px #d1d1d2;
+      cursor: pointer;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-left: 1em;
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 114.73px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: #000000;
+    font-size: 0.875em;
+    padding: 0.438em 1em;
+    text-decoration: none;
+    display: block;
+  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #efefef}
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  /*--------------- Style The Dropdown Button End -----------------*/
   /*-------------------- table css start  -----------------------*/
   .list {
     width: 100%;
