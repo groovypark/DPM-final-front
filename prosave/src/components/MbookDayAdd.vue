@@ -32,10 +32,13 @@
         </div>
       </div>
     </div>
-    
+    <div class="category-div">
+      <div class="title-choose-category">자세한 항목을 입력해주세요.</div>
+      <input class="detail" v-on:click="btnActivate" placeholder="아침, 점심, 저녁, 간식 등">
+    </div>
     <div class="footer">
-      <div class="btn-cancel"><a href="">취소</a></div>
-      <div class="btn-submit"><a href="">추가하기</a></div>
+      <div class="btn-cancel"><router-link to="/moneybook">취소</router-link></div>
+      <div class="btn-submit"><router-link to="/moneybook">추가하기</router-link></div>
     </div>
   </div>
 </template>
@@ -49,6 +52,10 @@ export default {
     };
   },
   methods: {
+    btnActivate: function btnActivate() {
+      const button = document.getElementsByClassName('btn-submit')[0];
+      button.setAttribute('style', 'background-color: #363639;');
+    },
     // 중복선택됨 수정필요
     checkCategory: function ckeckCategory() {
       const selectCategory = document.getElementsByClassName('category-box');
@@ -65,11 +72,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.header-center {
-  text-align: center;
-  margin: auto;
-  width: 375px;
-}
 .header {
   width: 100%;
   height: 11.313em;
@@ -85,100 +87,82 @@ export default {
   font-size: 1.3em;
   margin-right: 0.2em;
 }
-
 /*------------- Style The Dropdown Button Start -------------*/
-.dropbtn {
-    background-color: #efefef;
-    padding: 0.438em 1em;
+  .dropbtn {
+      background-color: #efefef;
+      padding: 0.438em 1em;
+      font-size: 0.875em;
+      border-radius: 3px;
+      border: solid 1px #d1d1d2;
+      cursor: pointer;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-left: 1em;
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #efefef;
+      min-width: 10.072em;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: #000000;
     font-size: 0.875em;
-    border-radius: 3px;
-    border: solid 1px #d1d1d2;
-    cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  padding-left: 1em;
-  float: left;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #efefef;
-    min-width: 10.072em;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: #000000;
-  font-size: 0.875em;
-  padding: 0.438em 1em;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #efefef}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+    padding: 0.438em 1em;
+    text-decoration: none;
     display: block;
-}
-/*--------------- Style The Dropdown Button End -----------------*/
-
-.cash {
-  width: 5em;
-  height: 1.3em;
-  border-radius: 3px;
-  background-color: #d1d1d2;
-  padding: 0.375em 0;
-  font-size: 0.875em;
-  color: #747477;
-  text-align: center;
-  float: right;
-  margin-right: 1em;
-}
-
-.add-money {
+  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #efefef}
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  /*--------------- Style The Dropdown Button End -----------------*/
+  .cash {
+    width: 5em;
+    height: 1.3em;
+    border-radius: 3px;
+    background-color: #d1d1d2;
+    padding: 0.375em 0;
+    font-size: 0.875em;
+    color: #747477;
+    text-align: center;
+    float: right;
+    margin-right: 1em;
+  }
+  .add-money {
   width: 21em;
+  /* height: 50px; */
   border-radius: 3px;
   background-color: #ffffff;
   margin: 1em;
   padding: 0.8em 0.2em;
-  float: inline-end;
 }
-
 .add-money-font {
   font-size: 0.875em;
-  line-height: 0;
+  line-height: 1;
   letter-spacing: -0.2px;
   text-align: left;
   color: #747477;
   padding: 0.938em 1.125em;
-  float: left;
 }
-
 .add-money-total {
   float: right;
   padding-right: 1em;
   font-size: 1.125em;
 }
-
-.category-div {
-  width: 375px;
-  margin: auto;
-}
-
 .title-choose-category {
   font-size: 0.875em;
   margin: 2em 0em 1.3em 1em;
 }
-
 .category-container {
   display: grid;
   grid-template-columns: 79px 79px 79px 79px;
@@ -193,9 +177,7 @@ export default {
   margin-left: 1em;
   margin-bottom: 0.563em;
   text-align: center;
-  cursor: pointer;
 }
-
 .circle {
     background-color:#d8d8d8;
     border: solid 1px #979797;
@@ -204,12 +186,19 @@ export default {
     border-radius:75px;
     margin: 0.5em 1.7em 0 1.7em;
 }
-
 .category {
   font-size: 0.813em;
   color: #363639;
 }
-
+.detail {
+  width: 343px;
+  height: 40px;
+  opacity: 0.4;
+  border-radius: 3px;
+  background-color: #efefef;
+  margin-left: 1em;
+  text-decoration-color: #747477;
+}
 .footer {
   float: bottom;
   text-align: center;
@@ -230,7 +219,6 @@ export default {
   right: 0;
   padding: 1.1em 0em;
 }
-
 .footer a {
   color: #a3a3a4;
 }
