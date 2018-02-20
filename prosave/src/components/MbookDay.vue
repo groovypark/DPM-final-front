@@ -220,6 +220,8 @@ export default {
     position: absolute;
     top: 40%;
     width: 1.875em;
+    color: #a3a3a4;
+    left: 2.5em;
   }
   .btn-add {
     position: absolute;
