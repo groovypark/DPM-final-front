@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="chart-div">
-      <chart-line></chart-line>
-    </div>
+    <chart-line class="chart-div"></chart-line>
     <div class="item">
       <table class="list main-color">
         <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
@@ -34,9 +32,9 @@ export default {
 
 <style scoped>
   .chart-div {
-    width: 222px;
-    text-align: center;
-    margin: auto;
+    width: 365px;
+    height: 200px;
+    padding-top: 10px;
   }
   .chart-text {
     text-align: center;

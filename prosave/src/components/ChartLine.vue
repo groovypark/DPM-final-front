@@ -9,24 +9,25 @@ export default {
       datasets: [
         {
           backgroundColor: [
-            '#efefef',
-            '#efefef',
-            '#efefef',
-            '#a3a3a4',
-            '#efefef',
+            '#d8d8d8',
           ],
-          // borderColor: '#d1d1d2',
-          // borderWidth: 1,
-          data: [30, 20, 10, 50, 0, 0, 0],
+          data: [40, 30, 20, 70, 0, 0, 0],
+        },
+        {
+          backgroundColor: [
+            '#747477', '#747477', '#747477', '#747477',
+          ],
+          data: [0, 0, 0, 25, 0, 0, 0],
         },
       ],
     }, {
       responsive: true,
-      maintainAspectRatio: true,
+      maintainAspectRatio: false,
       legend: { display: false },
-      boxWidth: 80,
       scales: {
         xAxes: [{
+          stacked: true,
+          maxBarThickness: 6,
           gridLines: {
             display: false,
           },
