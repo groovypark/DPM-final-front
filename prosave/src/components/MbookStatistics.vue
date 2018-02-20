@@ -1,7 +1,7 @@
 <template>
   <div class="mbookStatistics">
     <div class="header">
-      <router-link to="/moneybook/"><span class="go-mbook"> < Money Book </span></router-link>
+      <router-link to="/moneybook/"><span class="go-mbook"> &lt; Money Book </span></router-link>
       <div class="add">+ 추가하기</div>
     </div>
     <div class="title">통계</div>
@@ -12,6 +12,16 @@
         <a href="#">03.02.2018</a>
         <a href="#">03.03.2018</a>
       </div>
+    </div>
+    <div class="btn-div">
+      <button class="btnActive">Day</button>
+      <button class="btn">Week</button>
+      <button class="btn">Month</button>
+    </div>
+    <div class="chart-title"><span class="title-active">카테고리</span><span> | 지출/수입</span></div>
+
+    <div class="chart-div">
+      <chart></chart>
     </div>
 
     <div class="item">
@@ -27,14 +37,15 @@
         <span class="text-gray">총 &nbsp;</span>₩ 111,139,000
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import Chart from './Chart';
 
 export default {
   name: 'MbookStatistics',
+  components: { Chart },
   data() {
     return {
       spendList: [
@@ -87,11 +98,30 @@ export default {
     font-size: 0.688em;
     color: #a3a3a4;
     padding: 1.5em 0 1em 1.8em;
-
   }
   .add {
     float: right;
     padding: 1em;
+  }
+  .btn-div {
+    float: right;
+    padding-right: 1em;
+  }
+  .btnActive {
+    width: 45px;
+    height: 27px;
+    border-radius: 3px;
+    background-color: #efefef;
+    border: solid 1px #d1d1d2;
+    margin-left: 0.3em;
+  }
+  .btn {
+    width: 55px;
+    height: 27px;
+    border-radius: 3px;
+    border: solid 1px #d1d1d2;
+    background: white;
+    margin-left: 0.3em;
   }
   .item {
     position: absolute;
@@ -137,6 +167,19 @@ export default {
       display: block;
   }
   /*--------------- Style The Dropdown Button End -----------------*/
+  .chart-title {
+    font-size: 18px;
+    padding: 32px 0 0 1em;
+    color: #a3a3a4;
+  }
+  .title-active {
+    color: #25272c;
+  }
+  .chart-div {
+    width: 15em;
+    text-align: center;
+    margin: auto;
+  }
   /*-------------------- table css start  -----------------------*/
   .list {
     width: 100%;
