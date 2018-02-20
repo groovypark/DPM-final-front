@@ -18,18 +18,50 @@
       <button class="btn">Week</button>
       <button class="btn">Month</button>
     </div>
-    <div class="chart-title"><a class="title-active">카테고리</a><a> | 지출/수입</a></div>
+    <div class="chart-title">
+      <a v-on:click="ActiveCategory" id="category">카테고리</a> | 
+      <a v-on:click="ActiveSpendIncome" id="spendIncome" class="title-inactive">지출/수입</a></div>
+    <div v-if="categoryActive">
+      <chart-category></chart-category>
+    </div>
+    <div v-if="spendIncomeActive">
+      <ChartSpendIncome></ChartSpendIncome>
+    </div>
 
-    <chart-category></chart-category>
   </div>
 </template>
 
 <script>
 import ChartCategory from './ChartCategory';
+import ChartSpendIncome from './ChartSpendIncome';
 
 export default {
   name: 'MbookStatistics',
-  components: { ChartCategory },
+  components: { ChartCategory, ChartSpendIncome },
+  data() {
+    return {
+      categoryActive: true,
+      spendIncomeActive: false,
+    };
+  },
+  methods: {
+    ActiveCategory: function ActiveCategory() {
+      const category = document.getElementById('category');
+      const spendIncome = document.getElementById('spendIncome');
+      this.categoryActive = true;
+      this.spendIncomeActive = false;
+      category.setAttribute('style', 'color: #25272c;');
+      spendIncome.setAttribute('style', 'color: #a3a3a4;');
+    },
+    ActiveSpendIncome: function ActiveSpendIncome() {
+      const category = document.getElementById('category');
+      const spendIncome = document.getElementById('spendIncome');
+      this.categoryActive = false;
+      this.spendIncomeActive = true;
+      spendIncome.setAttribute('style', 'color: #25272c;');
+      category.setAttribute('style', 'color: #a3a3a4;');
+    },
+  },
 };
 </script>
 
@@ -118,11 +150,9 @@ export default {
   .chart-title {
     font-size: 18px;
     padding: 32px 0 0 1em;
-  }
-  .chart-title a{
     color: #a3a3a4;
   }
-  .title-active {
-    color: #25272c !important;
+  .title-inactive {
+    color: #a3a3a4;
   }
 </style>

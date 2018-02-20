@@ -1,32 +1,31 @@
 <template>
-<div>
-  <div class="chart-text">지출<br>₩ 52,000</div>
-  <div class="chart-div">
-    <chart-doughnut></chart-doughnut>
-  </div>
-  <div class="item">
-    <table class="list main-color">
-      <tr><td class="table-title">지출 | 수입</td></tr>
-      <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
-      <tr v-for="item in spendList" :key="item.id">
-        <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
-        <td class="col2">{{ item.count }}</td>
-        <td class="col3">{{ item.total }}</td>
-      </tr>
-    </table>
-    <div class="item-total">
-      <span class="text-gray">총 &nbsp;</span>₩ 111,139,000
+  <div>
+    <div class="chart-div">
+      <chart-line></chart-line>
+    </div>
+    <div class="item">
+      <table class="list main-color">
+        <tr><td class="table-title">지출 | 수입</td></tr>
+        <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
+        <tr v-for="item in spendList" :key="item.id">
+          <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
+          <td class="col2">{{ item.count }}</td>
+          <td class="col3">{{ item.total }}</td>
+        </tr>
+      </table>
+      <div class="item-total">
+        <span class="text-gray">총 &nbsp;</span>₩ 111,139,000
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import ChartDoughnut from './ChartDoughnut';
+import ChartLine from './ChartLine';
 
 export default {
-  name: 'MbookStatistics',
-  components: { ChartDoughnut },
+  name: 'ChartSpendIncome',
+  components: { ChartLine },
   data() {
     return {
       spendList: [
