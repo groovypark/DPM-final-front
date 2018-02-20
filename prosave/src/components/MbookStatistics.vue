@@ -19,13 +19,14 @@
       <button class="btn">Month</button>
     </div>
     <div class="chart-title"><span class="title-active">카테고리</span><span> | 지출/수입</span></div>
-
+    <div class="chart-text">지출<br>₩ 52,000</div>
     <div class="chart-div">
       <chart></chart>
     </div>
 
     <div class="item">
       <table class="list main-color">
+        <tr><td class="table-title">지출 | 수입</td></tr>
         <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
         <tr v-for="item in spendList" :key="item.id">
           <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
@@ -176,11 +177,24 @@ export default {
     color: #25272c;
   }
   .chart-div {
-    width: 15em;
+    width: 13em;
     text-align: center;
     margin: auto;
   }
+  .chart-text {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 41%;
+  }
   /*-------------------- table css start  -----------------------*/
+  .table-title {
+    padding-left: 1em;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    text-align: left;
+    color: #25272c;
+  }
   .list {
     width: 100%;
     list-style: none;
