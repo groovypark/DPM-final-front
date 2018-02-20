@@ -20,7 +20,7 @@ export default {
           data: [40, 20, 20, 10, 10],
         },
       ],
-    });
+    }, { cutoutPercentage: 80 });
   },
 };
 </script>
