@@ -5,17 +5,20 @@
     </div>
     <div class="item">
       <table class="list main-color">
-        <tr><td class="table-title">지출 | 수입</td></tr>
         <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
-        <tr v-for="item in spendList" :key="item.id">
-          <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
-          <td class="col2">{{ item.count }}</td>
-          <td class="col3">{{ item.total }}</td>
+        <tr>
+          <td class="col1">지출</td>
+          <td class="col2">- ₩52,000</td>
+        </tr>
+        <tr>
+          <td class="col1">수입</td>
+          <td class="col2">+ ₩3,000</td>
+        </tr>
+        <tr>
+          <td class="col1">총 잔액</td>
+          <td class="col2">₩2,951,000</td>
         </tr>
       </table>
-      <div class="item-total">
-        <span class="text-gray">총 &nbsp;</span>₩ 111,139,000
-      </div>
     </div>
   </div>
 </template>
@@ -26,42 +29,6 @@ import ChartLine from './ChartLine';
 export default {
   name: 'ChartSpendIncome',
   components: { ChartLine },
-  data() {
-    return {
-      spendList: [
-        {
-          type: '식품',
-          count: '98건',
-          total: '₩ 11,139,000',
-          circle: 'circle1',
-        },
-        {
-          type: '주거',
-          count: '1건',
-          total: '₩ 12,000',
-          circle: 'circle2',
-        },
-        {
-          type: '쇼핑',
-          count: '1건',
-          total: '₩ 10,000',
-          circle: 'circle3',
-        },
-        {
-          type: '교통',
-          count: '3건',
-          total: '₩ 5,000',
-          circle: 'circle4',
-        },
-        {
-          type: '기타',
-          count: '1건',
-          total: '₩ 3,000',
-          circle: 'circle5',
-        },
-      ],
-    };
-  },
 };
 </script>
 
@@ -88,7 +55,7 @@ export default {
   .list {
     width: 100%;
     list-style: none;
-    font-size: 0.813em;
+    font-size: 14px;
   }
   .list tr {
     width: 375px;
@@ -99,11 +66,13 @@ export default {
   }
   .col1 {
     width: 60%;
-    padding-left: 1em;
+    padding-left: 24px;
+    color: #747477;
   }
-  .col3 {
+  .col2 {
     text-align: right;
-    padding-right: 1em;
+    padding-right: 25px;
+    color: #25272c;
   }
   .circle1:before {
     content: ' \25CF';
@@ -136,14 +105,4 @@ export default {
     padding-right: 0.2em;
   }
   /*------------------ table css end  -----------------*/
-  .item-total {
-    background-color: #efefef;
-    font-size: 0.875em;
-    text-align: right;
-    padding: 1em;
-  }
-  .text-gray {
-    font-size: 0.875em;
-    color: #a3a3a4;
-  }
 </style>
