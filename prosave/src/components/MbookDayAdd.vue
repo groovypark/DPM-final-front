@@ -9,7 +9,7 @@
       <div class="header-center">
         <div class="dropdown">
           <!-- http://jqueryui.com/datepicker/ -->
-          <button class="dropbtn">화 12월 25일 2017년 <span class="main-color">▾ </span></button>
+          <button class="dropbtn">화 12월 25일 2017년 &nbsp;<img style="vertical-align:middle" src="static/img/dropdown.svg"></button>
           <div class="dropdown-content">
             <a href="#">수 12월 26일 2017년</a>
             <a href="#">목 12월 27일 2017년</a>

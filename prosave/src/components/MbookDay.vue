@@ -3,7 +3,7 @@
     <!-- menu-bar start -->
     <div class="menu-bar">
       <div class="dropdown">
-        <button class="dropbtn">Money Book <span class="main-color">▾ </span></button>
+        <button class="dropbtn">Money Book &nbsp;<img style="vertical-align:middle" src="static/img/dropdown.svg"></button>
         <div class="dropdown-content">
           <a href="#">Calendar</a>
           <a href="#">Today</a>
@@ -16,7 +16,7 @@
     </div>
     <!-- menu-bar end -->
     <div class="date-dropdown">
-      03.01.2017 ▾
+      03.01.2017 &nbsp;<img src="static/img/dropdown.svg">
     </div>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>

@@ -7,7 +7,7 @@
     <div class="title">통계</div>
     <div class="dropdown">
       <!-- http://jqueryui.com/datepicker/ -->
-      <button class="dropbtn">03.01.2018 &nbsp;<span class="main-color">▾ </span></button>
+      <button class="dropbtn">03.01.2018 &nbsp;<img style="vertical-align:middle" src="static/img/dropdown.svg"></button>
       <div class="dropdown-content">
         <a href="#">03.02.2018</a>
         <a href="#">03.03.2018</a>
