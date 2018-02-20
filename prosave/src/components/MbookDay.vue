@@ -147,7 +147,7 @@ export default {
     background-color: #efefef;
     color: #a3a3a4;
     font-size: 0.6em;
-    padding: 0.313em 1em;
+    padding: 0.313em 1.5em;
   }
 
   .spend {

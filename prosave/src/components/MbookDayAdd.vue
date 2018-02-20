@@ -197,6 +197,7 @@ export default {
   border-radius: 3px;
   background-color: #efefef;
   margin-left: 1em;
+  padding-left: 1em;
   text-decoration-color: #747477;
 }
 .footer {

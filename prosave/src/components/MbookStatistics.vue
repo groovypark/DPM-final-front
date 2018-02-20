@@ -71,7 +71,8 @@ export default {
     height: 3.375em;
   }
   .title {
-    padding: 0 0 1em 1em;
+    font-size: 18px;
+    padding: 0 0 0.7em 1em;
   }
   .go-mbook {
     float: left;
