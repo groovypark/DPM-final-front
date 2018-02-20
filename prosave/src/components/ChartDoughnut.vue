@@ -5,7 +5,6 @@ export default {
   extends: Doughnut,
   mounted() {
     this.renderChart({
-      // labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
       datasets: [
         {
           backgroundColor: [
