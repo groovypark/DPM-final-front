@@ -20,15 +20,20 @@ export default {
     color: black;
   }
   :root {
-    --gray: #a3a3a4;
+    --gray: #CAC6D1;
+    --purple: #4C4484;
+    --black: #1C1823;
+    --dark-gray: #55515B;
+    --yellow: #EFDE40;
+    --yellow-rgb: 239,222,63;
   }
   .main-color {
-    color: var(--gray);
+    color: var(--dark-gray);
     /* color: #a3a3a4; */
   }
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'NanumSquare', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
