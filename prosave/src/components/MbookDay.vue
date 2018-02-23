@@ -96,6 +96,8 @@ export default {
   .today {
     float: right;
     padding: 1em;
+    font-weight: bold;
+    color: #4C4484;
   }
 
   /*------------- Style The Dropdown Button Start -------------*/
@@ -103,6 +105,8 @@ export default {
       background-color: #ffffff;
       padding: 16px;
       font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
       border: none;
       cursor: pointer;
   }
@@ -117,22 +121,29 @@ export default {
   .dropdown-content {
       display: none;
       position: absolute;
+      padding: 6px 0 10px;
       background-color: #ffffff;
       min-width: 133.833px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 0px 5px 18px rgba(28,24,35,0.08);
       z-index: 1;
   }
 
   /* Links inside the dropdown */
   .dropdown-content a {
-    color: #000000;
-    padding: 12px 16px;
-    text-decoration: none;
     display: block;
+    padding: 14px 16px;
+    font-weight: 600;
+    color: var(--black);
+    text-decoration: none;
+    
   }
 
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #efefef}
+  .dropdown-content a:hover {
+    font-weight: 600;
+    color: var(--purple);
+    background-color: rgba(var(--yellow-rgb),.1);
+  }
 
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
