@@ -4,12 +4,16 @@
     <div class="header">
       <div class="title">
         지출
-        <router-link to="/moneybook"><span class="close">x</span></router-link>
+        <router-link to="/moneybook">
+          <svgicon class="close" name="close" width="20px" height="20px" color="#CAC6D1"></svgicon>
+        </router-link>
       </div>
       <div class="header-center">
         <div class="dropdown">
           <!-- http://jqueryui.com/datepicker/ -->
-          <button class="dropbtn">화 12월 25일 2017년 &nbsp;<img style="vertical-align:middle" src="static/img/dropdown.svg"></button>
+          <button class="dropbtn">화 12월 25일 2017년 &nbsp;
+            <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>
+          </button>
           <div class="dropdown-content">
             <a href="#">수 12월 26일 2017년</a>
             <a href="#">목 12월 27일 2017년</a>
@@ -44,7 +48,8 @@
 </template>
 
 <script>
-export default {
+  import '../assets/icons/dropdown'
+  export default {
   name: 'MbookDayAdd',
   data() {
     return {
@@ -67,7 +72,7 @@ export default {
       }
     },
   },
-};
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -95,6 +100,9 @@ export default {
       border-radius: 3px;
       border: solid 1px #d1d1d2;
       cursor: pointer;
+  }
+  .dropbtn .i-dropdown {
+    transform: translateY(-50%);
   }
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
