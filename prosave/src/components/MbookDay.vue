@@ -37,18 +37,22 @@
         <td class="col3">{{ item.total }}</td>
       </tr>
     </table>
-
-    <router-link to="/moneybook/add"><img class="btn-add" src="static/img/btnAdd.png"></router-link>
     <div class="footer-total main-color">
-      <span class="circle4" style="font-size:2.5em"></span>
-      <router-link to="/moneybook/statistics"><span class="footer-text"> 통계</span></router-link>
+      <div class="btn-stats">
+        <router-link to="/moneybook/statistics"><span class="footer-text"> 통계</span></router-link>
+      </div>
+      <div class="btn-add">
+        <router-link to="/moneybook/add">
+          <svgicon class="i-add" name="add" width="24px" height="24px" color="#FFFFFF"></svgicon>
+        </router-link>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
-  import '../assets/icons/dropdown'
+  import '../assets/icons'
   export default {
     name: 'MbookDay',
     data() {
@@ -94,7 +98,7 @@
 <style scoped>
   .mBookDay {
     width: 100%;
-    height: 41.688em;
+    height: 100vh;
   }
   .menu-bar {
     height: 3.375em;
@@ -237,19 +241,53 @@
 
   .footer-total {
     position: absolute;
-    bottom: 0em;
-    left: 1em;
+    left: 0;
+    bottom: 16px;
+    width: 100%;
+    height: 56px;
   }
-  .footer-text {
+  .footer-total .btn-stats { 
     position: absolute;
-    top: 40%;
+    left: 16px;
+    bottom: 0;
     width: 1.875em;
-    color: #a3a3a4;
-    left: 2.5em;
+    height: 56px;
   }
-  .btn-add {
+  .footer-text{
+    font-weight: 600;
+    color: var(--dark-gray);
+    line-height: 56px;
+    padding-left: 32px;
+  }
+  .footer-text:before {
+    content: '';
+    position: absolute; 
+    left: 0;
+    bottom: 15px; 
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--gray);
+  }
+  .footer-total .btn-add {
     position: absolute;
-    bottom: 1.5em;
-    right: 1em;
+    bottom: 0;
+    right: 16px;
+    width: 54px;
+    height: 54px;
+    background-color: var(--purple);
+    border-radius: 50%;
   }
+  .btn-add .i-add {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .footer-total .btn-add:hover {
+    background-color: var(--gray);
+    transition: all 0.18s ease-in;
+  }
+
 </style>
