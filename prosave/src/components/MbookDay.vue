@@ -3,7 +3,9 @@
     <!-- menu-bar start -->
     <div class="menu-bar">
       <div class="dropdown">
-        <button class="dropbtn">Money Book &nbsp;<img style="vertical-align:middle" src="static/img/dropdown.svg"></button>
+        <button class="dropbtn">Money Book &nbsp;
+        <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#55515B"></svgicon>
+        </button>
         <div class="dropdown-content">
           <a href="#">Calendar</a>
           <a href="#">Today</a>
@@ -16,7 +18,10 @@
     </div>
     <!-- menu-bar end -->
     <div class="date-dropdown">
-      03.01.2017 &nbsp;<img src="static/img/dropdown.svg">
+      03.01.2017 &nbsp;
+      
+      <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>
+      
     </div>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>
@@ -43,45 +48,46 @@
 </template>
 
 <script>
-export default {
-  name: 'MbookDay',
-  data() {
-    return {
-      spendList: [
-        {
-          type: '식품',
-          count: '2건',
-          total: '₩ 22,000',
-          circle: 'circle1',
-        },
-        {
-          type: '주거',
-          count: '1건',
-          total: '₩ 12,000',
-          circle: 'circle2',
-        },
-        {
-          type: '쇼핑',
-          count: '1건',
-          total: '₩ 10,000',
-          circle: 'circle3',
-        },
-        {
-          type: '교통',
-          count: '3건',
-          total: '₩ 5,000',
-          circle: 'circle4',
-        },
-        {
-          type: '기타',
-          count: '1건',
-          total: '₩ 3,000',
-          circle: 'circle5',
-        },
-      ],
-    };
-  },
-};
+  import '../assets/icons/dropdown'
+  export default {
+    name: 'MbookDay',
+    data() {
+      return {
+        spendList: [
+          {
+            type: '식품',
+            count: '2건',
+            total: '₩ 22,000',
+            circle: 'circle1',
+          },
+          {
+            type: '주거',
+            count: '1건',
+            total: '₩ 12,000',
+            circle: 'circle2',
+          },
+          {
+            type: '쇼핑',
+            count: '1건',
+            total: '₩ 10,000',
+            circle: 'circle3',
+          },
+          {
+            type: '교통',
+            count: '3건',
+            total: '₩ 5,000',
+            circle: 'circle4',
+          },
+          {
+            type: '기타',
+            count: '1건',
+            total: '₩ 3,000',
+            circle: 'circle5',
+          },
+        ],
+      };
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -102,13 +108,19 @@ export default {
 
   /*------------- Style The Dropdown Button Start -------------*/
   .dropbtn {
+      width: 148px;
+      height: 54px;
       background-color: #ffffff;
-      padding: 16px;
       font-size: 16px;
       font-weight: 600;
       color: var(--black);
       border: none;
       cursor: pointer;
+  }
+
+  .dropdown .i-dropdown {
+    transform: translateY(-50%);
+
   }
 
   /* The container <div> - needed to position the dropdown content */
@@ -123,7 +135,7 @@ export default {
       position: absolute;
       padding: 6px 0 10px;
       background-color: #ffffff;
-      min-width: 133.833px;
+      min-width: 148px;
       box-shadow: 0px 5px 18px rgba(28,24,35,0.08);
       z-index: 1;
   }
@@ -154,11 +166,17 @@ export default {
 
   .date-dropdown {
     width: 100%;
-    height: 1.313em;
+    height: 15px;
     background-color: #efefef;
-    color: #a3a3a4;
-    font-size: 0.6em;
+    color: var(--dark-gray);
+    font-size: 0.7em;
+    line-height: 15px;
     padding: 0.313em 1.5em;
+  }
+
+  .date-dropdown .i-dropdown {
+    transform: translateY(-50%);
+    margin-bottom: -1px;
   }
 
   .spend {
@@ -176,49 +194,44 @@ export default {
     font-size: 0.813em;
   }
   .list tr {
-    width: 375px;
-    height: 34px;
-    vertical-align: center;
+    width: 100%;
+    height: 38px;
+    font-size: 14px;
+    line-height: 38px; 
     box-shadow: inset 0 -1px 0 0 #efefef;
-    padding: 0.3em 0.5em 0.1em 0.5em;
   }
   .col1 {
+    position: relative;
     width: 67%;
-    padding-left: 1em;
+    padding-left: 40px;
   }
   .col3 {
     text-align: right;
     padding-right: 1em;
   }
-  .circle1:before {
+  .circle1:before, .circle2:before, .circle3:before, .circle4:before, .circle5:before {
     content: ' \25CF';
+    position: absolute;
+    top:1px;
+    left: 16px;
     font-size: 1.5em;
+    padding-right: 16px;
+  }
+
+  .circle1:before {
     color: #a3a3a4;
-    padding-right: 0.2em;
   }
   .circle2:before {
-    content: ' \25CF';
-    font-size: 1.5em;
     color: #363639;
-    padding-right: 0.2em;
   }
   .circle3:before {
-    content: ' \25CF';
-    font-size: 1.5em;
     color: #eeeded;
-    padding-right: 0.2em;
   }
   .circle4:before {
-    content: ' \25CF';
-    font-size: 1.5em;
     color: #d1d1d2;
-    padding-right: 0.2em;
   }
   .circle5:before {
-    content: ' \25CF';
-    font-size: 1.5em;
     color: #747477;
-    padding-right: 0.2em;
   }
   /*------------------ table css end  -----------------*/
 
