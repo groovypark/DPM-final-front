@@ -18,10 +18,8 @@
     </div>
     <!-- menu-bar end -->
     <div class="date-dropdown">
-      03.01.2017 &nbsp;
-      
-      <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>
-      
+      03.01.2017 &nbsp;      
+      <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>      
     </div>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>
@@ -52,46 +50,47 @@
 </template>
 
 <script>
-  import '../assets/icons'
-  export default {
-    name: 'MbookDay',
-    data() {
-      return {
-        spendList: [
-          {
-            type: '식품',
-            count: '2건',
-            total: '₩ 22,000',
-            circle: 'circle1',
-          },
-          {
-            type: '주거',
-            count: '1건',
-            total: '₩ 12,000',
-            circle: 'circle2',
-          },
-          {
-            type: '쇼핑',
-            count: '1건',
-            total: '₩ 10,000',
-            circle: 'circle3',
-          },
-          {
-            type: '교통',
-            count: '3건',
-            total: '₩ 5,000',
-            circle: 'circle4',
-          },
-          {
-            type: '기타',
-            count: '1건',
-            total: '₩ 3,000',
-            circle: 'circle5',
-          },
-        ],
-      };
-    },
-  };
+import '../assets/icons';
+
+export default {
+  name: 'MbookDay',
+  data() {
+    return {
+      spendList: [
+        {
+          type: '식품',
+          count: '2건',
+          total: '₩ 22,000',
+          circle: 'circle1',
+        },
+        {
+          type: '주거',
+          count: '1건',
+          total: '₩ 12,000',
+          circle: 'circle2',
+        },
+        {
+          type: '쇼핑',
+          count: '1건',
+          total: '₩ 10,000',
+          circle: 'circle3',
+        },
+        {
+          type: '교통',
+          count: '3건',
+          total: '₩ 5,000',
+          circle: 'circle4',
+        },
+        {
+          type: '기타',
+          count: '1건',
+          total: '₩ 3,000',
+          circle: 'circle5',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

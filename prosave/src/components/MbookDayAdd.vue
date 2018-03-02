@@ -48,8 +48,9 @@
 </template>
 
 <script>
-  import '../assets/icons/dropdown'
-  export default {
+import '../assets/icons/dropdown';
+
+export default {
   name: 'MbookDayAdd',
   data() {
     return {
@@ -72,7 +73,7 @@
       }
     },
   },
-  };
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

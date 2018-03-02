@@ -42,7 +42,7 @@
 <script>
 import ChartCategory from './ChartCategory';
 import ChartSpendIncome from './ChartSpendIncome';
-import '../assets/icons'
+import '../assets/icons';
 
 export default {
   name: 'MbookStatistics',
