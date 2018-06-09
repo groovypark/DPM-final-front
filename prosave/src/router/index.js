@@ -10,17 +10,17 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/moneybook',
+      path: '/',
       name: 'MbookDay',
       component: MbookDay,
     },
     {
-      path: '/moneybook/add',
+      path: '/add',
       name: 'MbookDayAdd',
       component: MbookDayAdd,
     },
     {
-      path: '/moneybook/statistics',
+      path: '/statistics',
       name: 'MbookStatistics',
       component: MbookStatistics,
     },
