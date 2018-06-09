@@ -37,10 +37,10 @@
     </table>
     <div class="footer-total main-color">
       <div class="btn-stats">
-        <router-link to="/moneybook/statistics"><span class="footer-text"> 통계</span></router-link>
+        <router-link to="/statistics"><span class="footer-text"> 통계</span></router-link>
       </div>
       <div class="btn-add">
-        <router-link to="/moneybook/add">
+        <router-link to="/add">
           <svgicon class="i-add" name="add" width="24px" height="24px" color="#FFFFFF"></svgicon>
         </router-link>
       </div>
