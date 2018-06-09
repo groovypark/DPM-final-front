@@ -4,25 +4,17 @@
     <div class="header">
       <div class="title">
         지출
-        <router-link to="/moneybook">
+        <router-link to="/">
           <svgicon class="close" name="close" width="20px" height="20px" color="#CAC6D1"></svgicon>
         </router-link>
       </div>
       <div class="header-center">
-        <div class="dropdown">
-          <!-- http://jqueryui.com/datepicker/ -->
-          <button class="dropbtn">화 12월 25일 2017년 &nbsp;
-            <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">수 12월 26일 2017년</a>
-            <a href="#">목 12월 27일 2017년</a>
-          </div>
-        </div> 
+        <div class="flat-pickr">
+          <flat-pickr v-model="date"></flat-pickr>
+        </div>
         <div class="cash">현금</div>
         <div class="add-money">
-          <span class="add-money-font">금액</span>
-          <span class="add-money-total">₩ 12,000</span>
+          <span class="add-money-font">금액</span>₩ <input class="add-input" type="number" placeholder="입력해주세요">
         </div>
       </div>
     </div>
@@ -41,28 +33,33 @@
       <input class="detail" v-on:click="btnActivate" placeholder="아침, 점심, 저녁, 간식 등">
     </div>
     <div class="footer">
-      <div class="btn-cancel"><router-link to="/moneybook">취소</router-link></div>
-      <div class="btn-submit"><router-link to="/moneybook">추가하기</router-link></div>
+      <router-link to="/"><div class="btn-cancel">취소</div></router-link>
+      <router-link to="/"><div class="btn-submit">추가하기</div></router-link>
     </div>
   </div>
 </template>
 
 <script>
-import '../assets/icons/dropdown';
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
 
 export default {
   name: 'MbookDayAdd',
   data() {
     return {
+      date: new Date(),
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
     };
+  },
+  components: {
+    flatPickr,
   },
   methods: {
     btnActivate: function btnActivate() {
       const button = document.getElementsByClassName('btn-submit')[0];
       button.setAttribute('style', 'background-color: #363639;');
     },
-    // 중복선택됨 수정필요
+    //  todo:중복선택됨 수정필요
     checkCategory: function ckeckCategory() {
       const selectCategory = document.getElementsByClassName('category-box');
       for (let index = 0; index < selectCategory.length; index += 1) {
@@ -93,63 +90,28 @@ export default {
   font-size: 1.3em;
   margin-right: 0.2em;
 }
-/*------------- Style The Dropdown Button Start -------------*/
-  .dropbtn {
-      background-color: #efefef;
-      padding: 0.438em 1em;
-      font-size: 0.875em;
-      border-radius: 3px;
-      border: solid 1px #d1d1d2;
-      cursor: pointer;
+
+.flat-pickr {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0 0 16px;
+  height: 27px;
+}
+  
+.cash {
+  width: 5em;
+  height: 1.3em;
+  border-radius: 3px;
+  background-color: #d1d1d2;
+  padding: 0.375em 0;
+  font-size: 0.875em;
+  color: #747477;
+  text-align: center;
+  float: right;
+  margin-right: 1em;
   }
-  .dropbtn .i-dropdown {
-    transform: translateY(-50%);
-  }
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    padding-left: 1em;
-  }
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #efefef;
-      min-width: 10.072em;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-  }
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #000000;
-    font-size: 0.875em;
-    padding: 0.438em 1em;
-    text-decoration: none;
-    display: block;
-  }
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #efefef}
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-  /*--------------- Style The Dropdown Button End -----------------*/
-  .cash {
-    width: 5em;
-    height: 1.3em;
-    border-radius: 3px;
-    background-color: #d1d1d2;
-    padding: 0.375em 0;
-    font-size: 0.875em;
-    color: #747477;
-    text-align: center;
-    float: right;
-    margin-right: 1em;
-  }
-  .add-money {
+.add-money {
   width: 21em;
-  /* height: 50px; */
   border-radius: 3px;
   background-color: #ffffff;
   margin: 1em;
@@ -161,13 +123,18 @@ export default {
   letter-spacing: -0.2px;
   text-align: left;
   color: #747477;
-  padding: 0.938em 1.125em;
+  padding: 0.938em 12em 0.938em 1.125em;
 }
 .add-money-total {
   float: right;
   padding-right: 1em;
   font-size: 1.125em;
 }
+.add-input {
+  width: 80px;
+  font-size: 14px;
+}
+
 .title-choose-category {
   font-size: 0.875em;
   margin: 2em 0em 1.3em 1em;
@@ -202,12 +169,10 @@ export default {
 .detail {
   width: 343px;
   height: 40px;
-  opacity: 0.4;
-  border-radius: 3px;
   background-color: #efefef;
   margin-left: 1em;
   padding-left: 1em;
-  text-decoration-color: #747477;
+  border:none
 }
 .footer {
   float: bottom;

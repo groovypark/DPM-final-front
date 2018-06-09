@@ -1,7 +1,7 @@
 <template>
   <div class="mbookStatistics">
     <div class="header">
-      <router-link to="/moneybook/">
+      <router-link to="/">
         <span class="go-mbook">Money Book</span>
         <svgicon class="i-previous" name="previous" width="14px" height="14px" color="#CAC6D1"></svgicon>        
       </router-link>
@@ -11,15 +11,8 @@
       </div>
     </div>
     <div class="title">통계</div>
-    <div class="dropdown">
-      <!-- http://jqueryui.com/datepicker/ -->
-      <button class="dropbtn">03.01.2018 &nbsp;
-        <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>
-      </button>
-      <div class="dropdown-content">
-        <a href="#">03.02.2018</a>
-        <a href="#">03.03.2018</a>
-      </div>
+    <div class="flat-pickr">
+      <flat-pickr v-model="date"></flat-pickr>
     </div>
     <div class="btn-div">
       <button class="btnActive">Day</button>
@@ -40,15 +33,18 @@
 </template>
 
 <script>
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
 import ChartCategory from './ChartCategory';
 import ChartSpendIncome from './ChartSpendIncome';
 import '../assets/icons';
 
 export default {
   name: 'MbookStatistics',
-  components: { ChartCategory, ChartSpendIncome },
+  components: { ChartCategory, ChartSpendIncome, flatPickr },
   data() {
     return {
+      date: new Date(),
       categoryActive: true,
       spendIncomeActive: false,
     };
@@ -131,48 +127,18 @@ export default {
     bottom: 0;
     width: 100%
   }
-  /*------------- Style The Dropdown Button Start -------------*/
-  .dropbtn {
-      background-color: white;
-      padding: 0.438em 1em;
-      font-size: 0.875em;
-      border-radius: 3px;
-      border: solid 1px #d1d1d2;
-      cursor: pointer;
-  }
-  .dropbtn .i-dropdown {
-    transform: translateY(-50%);
-  }
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+
+  .flat-pickr {
     position: relative;
     display: inline-block;
-    padding-left: 1em;
+    margin-left: 1em;
+    padding-top: 3px;
+    width: 118px;
+    height: 24px;
+    border-radius: 3px;
+    border: solid 1px #d1d1d2;
   }
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 114.73px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-  }
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #000000;
-    font-size: 0.875em;
-    padding: 0.438em 1em;
-    text-decoration: none;
-    display: block;
-  }
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #efefef}
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-      display: block;
-  }
-  /*--------------- Style The Dropdown Button End -----------------*/
+
   .chart-title {
     font-size: 18px;
     padding: 32px 0 0 1em;
