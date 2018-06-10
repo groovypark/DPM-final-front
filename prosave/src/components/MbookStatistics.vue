@@ -11,9 +11,7 @@
       </div>
     </div>
     <div class="title">통계</div>
-    <div class="flat-pickr">
-      <flat-pickr v-model="date"></flat-pickr>
-    </div>
+    <flatpickr class="div-flatpickr"></flatpickr>
     <div class="btn-div">
       <button class="btnActive">Day</button>
       <button class="btn">Week</button>
@@ -33,18 +31,16 @@
 </template>
 
 <script>
-import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
+import Flatpickr from './Flatpickr';
 import ChartCategory from './ChartCategory';
 import ChartSpendIncome from './ChartSpendIncome';
 import '../assets/icons';
 
 export default {
   name: 'MbookStatistics',
-  components: { ChartCategory, ChartSpendIncome, flatPickr },
+  components: { ChartCategory, ChartSpendIncome, Flatpickr },
   data() {
     return {
-      date: new Date(),
       categoryActive: true,
       spendIncomeActive: false,
     };
@@ -128,15 +124,12 @@ export default {
     width: 100%
   }
 
-  .flat-pickr {
+  .div-flatpickr {
     position: relative;
     display: inline-block;
     margin-left: 1em;
-    padding-top: 3px;
     width: 118px;
     height: 24px;
-    border-radius: 3px;
-    border: solid 1px #d1d1d2;
   }
 
   .chart-title {

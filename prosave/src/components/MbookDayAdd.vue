@@ -9,9 +9,8 @@
         </router-link>
       </div>
       <div class="header-center">
-        <div class="flat-pickr">
-          <flat-pickr v-model="date"></flat-pickr>
-        </div>
+        <!-- 달력 -->
+        <flatpickr class="flat-pickr"></flatpickr>
         <div class="cash">현금</div>
         <div class="add-money">
           <span class="add-money-font">금액</span>₩ <input class="add-input" type="number" placeholder="입력해주세요">
@@ -40,19 +39,15 @@
 </template>
 
 <script>
-import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
+import Flatpickr from './Flatpickr';
 
 export default {
   name: 'MbookDayAdd',
+  components: { Flatpickr },
   data() {
     return {
-      date: new Date(),
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
     };
-  },
-  components: {
-    flatPickr,
   },
   methods: {
     btnActivate: function btnActivate() {

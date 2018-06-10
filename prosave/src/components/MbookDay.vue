@@ -17,9 +17,8 @@
       <!-- dropdown end -->
     </div>
     <!-- menu-bar end -->
-    <div class="date-dropdown">
-      <flat-pickr :config="config" v-model="date"></flat-pickr>
-    </div>
+    <!-- 달력 -->
+    <flatpickr class="div-flatpickr"></flatpickr>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>
       <div class="total">
@@ -49,21 +48,15 @@
 </template>
 
 <script>
-import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
+import Flatpickr from './Flatpickr';
 import '../assets/icons';
 
 export default {
   name: 'MbookDay',
-  components: {
-    flatPickr,
-  },
+  components: { Flatpickr },
   data() {
     return {
       date: new Date(),
-      config: {
-        disableMobile: true,
-      },
       spendList: [
         {
           type: '식품',
@@ -175,14 +168,14 @@ export default {
 
   /*--------------- Style The Dropdown Button End -----------------*/
 
-  .date-dropdown {
+  .div-flatpickr {
     width: 100%;
-    height: 21px;
+    height: 30px;
     background-color: #efefef;
     color: var(--dark-gray);
     font-size: 0.7em;
     line-height: 15px;
-    padding: 0.313em 1.5em;
+    padding: 0.313em 1.5em 0.313em 1em;
   }
 
   .spend {
