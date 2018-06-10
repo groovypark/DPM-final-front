@@ -18,8 +18,7 @@
     </div>
     <!-- menu-bar end -->
     <div class="date-dropdown">
-      03.01.2017 &nbsp;      
-      <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#CAC6D1"></svgicon>      
+      <flat-pickr :config="config" v-model="date"></flat-pickr>
     </div>
     <div class="spend">
       지출 <span class="main-color">| 수입</span>
@@ -50,12 +49,21 @@
 </template>
 
 <script>
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
 import '../assets/icons';
 
 export default {
   name: 'MbookDay',
+  components: {
+    flatPickr,
+  },
   data() {
     return {
+      date: new Date(),
+      config: {
+        disableMobile: true,
+      },
       spendList: [
         {
           type: '식품',
@@ -169,17 +177,12 @@ export default {
 
   .date-dropdown {
     width: 100%;
-    height: 15px;
+    height: 21px;
     background-color: #efefef;
     color: var(--dark-gray);
     font-size: 0.7em;
     line-height: 15px;
     padding: 0.313em 1.5em;
-  }
-
-  .date-dropdown .i-dropdown {
-    transform: translateY(-50%);
-    margin-bottom: -1px;
   }
 
   .spend {
