@@ -1,6 +1,6 @@
 <template>
   <div class="mBookDay">
-    <mbook-day-add v-if="adding"/>
+    <mbook-day-add v-if="adding" v-on:toggle="toggleAdding"/>
     <div v-else>
       <!-- menu-bar start -->
       <div class="menu-bar">
