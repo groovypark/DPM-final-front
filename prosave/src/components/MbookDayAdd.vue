@@ -32,8 +32,8 @@
       <input class="detail" v-on:click="btnActivate" placeholder="아침, 점심, 저녁, 간식 등">
     </div>
     <div class="footer">
-      <router-link to="/"><div class="btn-cancel">취소</div></router-link>
-      <router-link to="/"><div class="btn-submit">추가하기</div></router-link>
+      <div class="btn-cancel" v-on:click="toggleAdding">취소</div>
+      <div class="btn-submit" v-on:click="toggleAdding">추가하기</div>
     </div>
   </div>
 </template>
@@ -44,6 +44,7 @@ import Flatpickr from './Flatpickr';
 export default {
   name: 'MbookDayAdd',
   components: { Flatpickr },
+  props: ['adding'],
   data() {
     return {
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
@@ -63,6 +64,9 @@ export default {
           element.setAttribute('style', 'border: solid 1px black;');
         };
       }
+    },
+    toggleAdding: function toggleAdding() {
+      this.adding = !this.adding;
     },
   },
 };

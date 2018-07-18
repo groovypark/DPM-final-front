@@ -1,62 +1,69 @@
 <template>
   <div class="mBookDay">
-    <!-- menu-bar start -->
-    <div class="menu-bar">
-      <div class="dropdown">
-        <button class="dropbtn">Money Book &nbsp;
-        <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#55515B"></svgicon>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Calendar</a>
-          <a href="#">Today</a>
+    <mbook-day-add v-if="adding"/>
+    <div v-else>
+      <!-- menu-bar start -->
+      <div class="menu-bar">
+        <div class="dropdown">
+          <button class="dropbtn">Money Book &nbsp;
+          <svgicon class="i-dropdown" name="dropdown" width="8" height="4" color="#55515B"></svgicon>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Calendar</a>
+            <a href="#">Today</a>
+          </div>
+        </div> 
+        <div class="today">
+          Today
         </div>
-      </div> 
-      <div class="today">
-        Today
+        <!-- dropdown end -->
       </div>
-      <!-- dropdown end -->
-    </div>
-    <!-- menu-bar end -->
-    <!-- 달력 -->
-    <flatpickr class="div-flatpickr"></flatpickr>
-    <div class="spend">
-      지출 <span class="main-color">| 수입</span>
-      <div class="total">
-        <span class="main-color">총</span> ₩52,000
+      <!-- menu-bar end -->
+      <!-- 달력 -->
+      <flatpickr class="div-flatpickr"></flatpickr>
+      <div class="spend">
+        지출 <span class="main-color">| 수입</span>
+        <div class="total">
+          <span class="main-color">총</span> ₩52,000
+        </div>
       </div>
-    </div>
-    <table class="list main-color">
-      <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
-      <tr v-for="item in spendList" :key="item.id">
-        <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
-        <td class="col2">{{ item.count }}</td>
-        <td class="col3">{{ item.total }}</td>
-      </tr>
-    </table>
-    <div class="footer-total main-color">
-      <div class="btn-stats">
-        <router-link to="/statistics"><span class="footer-text"> 통계</span></router-link>
-      </div>
-      <div class="btn-add">
-        <router-link to="/add">
+      <table class="list main-color">
+        <!-- 경고 : vue 자체에서 v-for 쓸때 key는 원시타입으로 바인딩 해주는걸 추천 -->
+        <tr v-for="item in spendList" :key="item.id">
+          <td class="col1"><span v-bind:class="item.circle"></span>{{ item.type }}</td>
+          <td class="col2">{{ item.count }}</td>
+          <td class="col3">{{ item.total }}</td>
+        </tr>
+      </table>
+      <div class="footer-total main-color">
+        <div class="btn-stats">
+          <router-link to="/statistics"><span class="footer-text"> 통계</span></router-link>
+        </div>
+        <div class="btn-add" v-on:click="toggleAdding">
           <svgicon class="i-add" name="add" width="24px" height="24px" color="#FFFFFF"></svgicon>
-        </router-link>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import Flatpickr from './Flatpickr';
+import MbookDayAdd from './MbookDayAdd';
 import '../assets/icons';
 
 export default {
   name: 'MbookDay',
-  components: { Flatpickr },
+  components: { Flatpickr, MbookDayAdd },
+  methods: {
+    toggleAdding: function toggleAdding() {
+      this.adding = !this.adding;
+    },
+  },
   data() {
     return {
       date: new Date(),
+      adding: false,
       spendList: [
         {
           type: '식품',
