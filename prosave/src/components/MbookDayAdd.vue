@@ -32,6 +32,7 @@
       <div class="title-choose-category">자세한 항목을 입력해주세요.</div>
       <input class="detail" v-on:click="btnActivate" placeholder="아침, 점심, 저녁, 간식 등">
     </div>
+    <!-- FIX : 두 번 클릭해야 추가됨 -->
     <div class="footer" v-on:click="toggleAdding">
       <div class="btn-cancel">취소</div>
       <div class="btn-submit" v-on:click="addList">추가하기</div>
@@ -49,11 +50,12 @@ export default {
     spendList: {
       type: Array,
       required: true,
+      default: this.spendList,
     },
   },
   data() {
     return {
-      spendList: this.spendList,
+      // spendList: this.spendList,
       money: '',
       type: '',
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
@@ -76,7 +78,7 @@ export default {
     },
     toggleAdding: function toggleAdding() {
       this.adding = !this.adding;
-      this.$emit('toggle');
+      this.$emit('toggleAdding', this.adding);
     },
     addList: function addList() {
       this.spendList.push({
@@ -85,7 +87,7 @@ export default {
         total: this.money,
         circle: 'circle1',
       });
-      this.$emit('add');
+      this.$emit('addList', this.spendList);
     },
   },
 };

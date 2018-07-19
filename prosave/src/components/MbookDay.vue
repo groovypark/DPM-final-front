@@ -2,8 +2,8 @@
   <div class="mBookDay">
     <mbook-day-add 
       v-if="adding"
-      v-on:toggle="toggleAdding"
-      v-on:add="addList"
+      v-on:toggleAdding="updateAdding($event)"
+      v-on:addList="updateList($event)"
       v-bind:spendList="spendList"/>
     <div v-else>
       <!-- menu-bar start -->
@@ -60,8 +60,14 @@ export default {
   name: 'MbookDay',
   components: { Flatpickr, MbookDayAdd },
   methods: {
-    toggleAdding: function toggleAdding() {
+    toggleAdding() {
       this.adding = !this.adding;
+    },
+    updateAdding(updatedAdding) {
+      this.adding = updatedAdding;
+    },
+    updateList(updatedList) {
+      this.spendList = updatedList;
     },
   },
   data() {
