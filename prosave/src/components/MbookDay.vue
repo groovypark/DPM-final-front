@@ -1,6 +1,10 @@
 <template>
   <div class="mBookDay">
-    <mbook-day-add v-if="adding" v-on:toggle="toggleAdding"/>
+    <mbook-day-add 
+      v-if="adding"
+      v-on:toggle="toggleAdding"
+      v-on:add="addList"
+      v-bind:spendList="spendList"/>
     <div v-else>
       <!-- menu-bar start -->
       <div class="menu-bar">

@@ -13,7 +13,8 @@
         <flatpickr class="flat-pickr"></flatpickr>
         <div class="cash">현금</div>
         <div class="add-money">
-          <span class="add-money-font">금액</span>₩ <input class="add-input" type="number" placeholder="입력해주세요">
+          <span class="add-money-font">금액</span>₩ 
+          <input class="add-input" v-model="money" type="number" placeholder="입력해주세요">
         </div>
       </div>
     </div>
@@ -31,9 +32,9 @@
       <div class="title-choose-category">자세한 항목을 입력해주세요.</div>
       <input class="detail" v-on:click="btnActivate" placeholder="아침, 점심, 저녁, 간식 등">
     </div>
-    <div class="footer">
-      <div class="btn-cancel" v-on:click="toggleAdding($event.target.value)">취소</div>
-      <div class="btn-submit" v-on:click="toggleAdding($event.target.value)">추가하기</div>
+    <div class="footer" v-on:click="toggleAdding">
+      <div class="btn-cancel">취소</div>
+      <div class="btn-submit" v-on:click="addList">추가하기</div>
     </div>
   </div>
 </template>
@@ -44,8 +45,17 @@ import Flatpickr from './Flatpickr';
 export default {
   name: 'MbookDayAdd',
   components: { Flatpickr },
+  props: {
+    spendList: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
+      spendList: this.spendList,
+      money: '',
+      type: '',
       categorys: ['식품', '음료', '교통', '쇼핑', '주거', '디지털', '의료', '기타'],
     };
   },
@@ -67,6 +77,15 @@ export default {
     toggleAdding: function toggleAdding() {
       this.adding = !this.adding;
       this.$emit('toggle');
+    },
+    addList: function addList() {
+      this.spendList.push({
+        type: '식품',
+        count: '1건',
+        total: this.money,
+        circle: 'circle1',
+      });
+      this.$emit('add');
     },
   },
 };
